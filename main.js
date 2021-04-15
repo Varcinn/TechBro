@@ -49,38 +49,3 @@ if (navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chr
    document.getElementsByTagName("header")[0].className += " safari";
 }
 
-//Typing
-const spnText = document.querySelector('.text');
-const spnCursor = document.querySelector('.cursor');
-const txt = ['Witamy na naszej witrynie!', 'Zapraszamy do współpracy!', 'TechBro']
-let indexTxt = 0;
-let indexArray = 0;
-
-const addLetter = () => {
-
-    spnText.textContent += txt[indexArray][indexTxt];
-    indexTxt++;
-
-    if (txt[indexArray].length === indexTxt) {
-
-        indexArray++;
-
-        if (indexArray === txt.length) return
-        return setTimeout(() => {
-            spnText.textContent = '';
-            indexTxt = 0;
-            addLetter();
-        }, 2000)
-
-    }
-    setTimeout(addLetter, 100)
-}
-
-
-addLetter();
-
-
-const cursorAnimation = () => {
-    spnCursor.classList.toggle('active');
-}
-setInterval(cursorAnimation, 400);
